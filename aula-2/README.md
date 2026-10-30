@@ -1,16 +1,40 @@
-# React + Vite
+# Aula 5 - Avaliador de Filmes (projeto final)
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Rodar:
 
-Currently, two official plugins are available:
+```
+npm install
+npm run dev
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Abra o endereço que aparecer (normalmente http://localhost:5173).
 
-## React Compiler
+Assim como na aula 4, o projeto busca os filmes na API da OMDb e precisa da chave no arquivo `.env`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Chave da OMDb
 
-## Expanding the Oxlint configuration
+Use a mesma chave da aula 4. Se o projeto da aula 4 já tem o `.env`, copie o arquivo para a pasta `aula5`. Se não, crie o `.env` a partir do exemplo e cole a chave:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```
+copy .env.example .env
+```
+
+O passo a passo para conseguir a chave, e o limite de requisições, estão no `README.md` da pasta `aula4` e no `.env.example`. O `.env` não vai para o GitHub.
+
+## Projeto final (`1-src-final/`)
+
+É o código final da aula 4 (`aula4/3-src-meus-filmes/`) com as **estrelas** e o **CSS completo**. A pesquisa, a **Minha lista** e as notas salvas no navegador já vêm da aula 4:
+
+- `components/Estrelas.jsx` - estrelas acesas conforme a nota (novo)
+- `components/Avaliacao.jsx` - mostra as estrelas acima da barra de nota
+- `App.jsx` - agrupa título, abas e busca em um `<header className="topo">` e dá a classe `erro` à mensagem de erro
+- `index.css` - o CSS completo, com o visual final
+- o resto (`hooks/`, `services/`, `Abas.jsx`, `Busca.jsx`, `Cabecalho.jsx`, `Filme.jsx`) - igual ao da aula 4
+
+O `1-src-final/README.md` lista tudo o que mudou em relação à aula 4.
+
+O `index.html` aponta para a pasta no `<script>`: `src="/1-src-final/main.jsx"`.
+
+## Onde ficam os dados
+
+A **Minha lista** e as notas ficam salvas no próprio navegador (`localStorage`), não em um servidor. Elas continuam depois de recarregar a página, mas só existem naquele navegador e naquele computador, e somem se os dados do navegador forem apagados.
