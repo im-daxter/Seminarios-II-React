@@ -1,10 +1,10 @@
-export default function Busca({ valor, onMuddar, onBuscar, onLimpar, buscando }) {
+export default function Busca({ valor, onMudar, onBuscar, onLimpar, buscando }) {
     function enviar(e) {
         e.preventDefault()
         onBuscar()
     }
 
-return (
+    return (
         <form className="busca" onSubmit={enviar}>
             <input
                 type="search" 
